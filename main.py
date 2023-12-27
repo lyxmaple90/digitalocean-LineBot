@@ -27,18 +27,26 @@ message = TemplateSendMessage(
 
 def f2():
     while True:
-        if GetJPDateTime() == "2023-11-24 00:00:00":   
+        current_datetime = GetJPDateTime()  # 獲得當前日期和時間 "YYYY-MM-DD HH:MM:SS"
+        current_date = current_datetime.split(" ")[0]  # 獲得當前日期 "YYYY-MM-DD"
+        current_time = current_datetime.split(" ")[1]  # 獲得當前時間 "HH:MM:SS"
+        
+        # 檢查是否為每年的11月24日並且時間為00:00:00
+        if current_date[-5:] == "11-24" and current_time == "00:00:00":
             onemessage = TextSendMessage(
                 text="お誕生日おめでとう!!"
             )
-            time.sleep(1)
             line_bot_api.broadcast(onemessage)
-            time.sleep(1)
-            break
+            # 等待24小時到下一天，因為我們不想在同一天重複發送訊息
+            time.sleep(86400)  
+        else:
+            # 如果不是11月24日午夜00:00:00，則稍微暫停一下再次檢查
+            time.sleep(5)  # 每5秒檢查一次，您可以根據需要調整這個時間
+
 
 
 onemessage = TextSendMessage(
-                text="テストです"
+                text="テストです(無視してください)"
             )
 time.sleep(1)
 line_bot_api.broadcast(onemessage)
