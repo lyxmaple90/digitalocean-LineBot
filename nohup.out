@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/root/python/sendLine/main.py", line 29, in <module>
+    line_bot_api.broadcast(message)
+  File "/usr/local/lib/python3.10/dist-packages/linebot/api.py", line 250, in broadcast
+    response = self._post(
+  File "/usr/local/lib/python3.10/dist-packages/linebot/api.py", line 1839, in _post
+    self.__check_error(response)
+  File "/usr/local/lib/python3.10/dist-packages/linebot/api.py", line 1875, in __check_error
+    raise LineBotApiError(
+linebot.exceptions.LineBotApiError: LineBotApiError: status_code=401, request_id=594e3d60-335b-4ba9-9b40-9d58d922bac6, error_response={"details": [], "message": "Authentication failed. Confirm that the access token in the authorization header is valid."}, headers={'Content-Type': 'application/json', 'Server': 'envoy', 'WWW-Authenticate': 'Bearer error="invalid_token", error_description="accessToken expired(2)"', 'x-content-type-options': 'nosniff', 'x-frame-options': 'DENY', 'x-line-request-id': '594e3d60-335b-4ba9-9b40-9d58d922bac6', 'x-xss-protection': '1; mode=block', 'Content-Length': '104', 'Expires': 'Tue, 30 Aug 2022 00:00:01 GMT', 'Cache-Control': 'max-age=0, no-cache, no-store', 'Pragma': 'no-cache', 'Date': 'Tue, 30 Aug 2022 00:00:01 GMT', 'Connection': 'close'}
